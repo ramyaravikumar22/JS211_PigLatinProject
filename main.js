@@ -12,7 +12,42 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
-
+word = word.trim()
+  word = word.toLowerCase()
+  // Set your vowels array to compare to word
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  let wordArray = word.split('')
+  let finalArray = []
+  let bucketArray = []
+  for (let index = 0; index < 2; index++) {
+    // console.log(wordArray[index])
+    if(vowels.includes(wordArray[index])) {
+      if(index === 0){
+        let theWord = word + 'yay'
+        finalArray.push(theWord)
+      } else {
+        let theWord = word.slice(index, word.length) 
+                    + word.slice(0, index) 
+                    + 'ay';
+        finalArray.push(theWord);
+      }
+    } else if (!vowels.includes(wordArray[index])) {
+      let bucket = wordArray[index]
+      bucketArray.push(bucket)
+      if (bucketArray.length === 2) {
+        let otherArray = bucketArray.join("")
+        console.log(otherArray)
+        let theWord = word.slice(2, word.length)
+                    + word.slice(2, index)
+                    + otherArray
+                    + 'ay'
+        finalArray.push(theWord)
+      }
+    }
+  }
+  const answer = finalArray.join();
+  // console.log(typeof(answer))
+  return answer
   // Your code here
 
 }
