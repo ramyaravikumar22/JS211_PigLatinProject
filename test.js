@@ -1,26 +1,16 @@
-'use strict';
 
-// brings in the assert module for unit testing
-const assert = require('assert');
-// brings in the readline module to access the command line
-const readline = require('readline');
-// use the readline module to print out to the command line
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 
 //get a reference to both the input and output 
 
-const textInput = document.getElementById('textInput');
-const textOutput = document.getElementById('textOutput');
+const textInput = document.getElementById('userInput');
+const textOutput = document.getElementById('userOutput');
 
 //create array of vowels 
 
 const vowels = ['a', 'e', 'i', 'o', 'u'];
-const ending = 'ay';
+const ending = 'yay';
 
-//now we want to check anytime a user enters something into the input we need to update the output
+//now we want to check anytime a user enters something into the input it need to update the output
 
 textInput.addEventListener('keyup', (e) => {
     const input = e.target.value; //e is the even; target is the target element 
@@ -28,12 +18,12 @@ textInput.addEventListener('keyup', (e) => {
 
     const words = input.split(' ');
     //translate the each word for pig latin
-    const output = words.map(word => convertToPigLatin(word)).join(' ')
+    const output = words.map(word => translateToPigLatin(word)).join(' ')
     //check if it ends in a vowel, then just add the ending vowel
     textOutput.innerText = output; 
     
 });
-const convertToPigLatin = (input) => {
+const translateToPigLatin = (input) => {
     if(vowels.includes(input[0])) {
         output = input + ending;
     } else {

@@ -10,6 +10,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+const userInput = document.getElementById('userinput');
+const userOutput = document.getElementById('userOutput');
 
 const pigLatin = (word) => {
 word = word.trim()
@@ -46,6 +48,7 @@ word = word.trim()
     }
   }
   const answer = finalArray.join();
+  console.log(typeof(answer))
   // console.log(typeof(answer))
   return answer
   // Your code here
@@ -57,7 +60,7 @@ word = word.trim()
 // to close it ctrl + C
 const getPrompt = () => {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
