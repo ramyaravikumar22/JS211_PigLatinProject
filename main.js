@@ -10,6 +10,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//get a reference to both the input and output 
+
 const userInput = document.getElementById('userinput');
 const userOutput = document.getElementById('userOutput');
 
