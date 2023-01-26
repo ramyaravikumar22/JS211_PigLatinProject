@@ -12,8 +12,6 @@ const rl = readline.createInterface({
 
 //get a reference to both the input and output 
 
-const userInput = document.getElementById('userinput');
-const userOutput = document.getElementById('userOutput');
 
 const pigLatin = (word) => {
 word = word.trim()
