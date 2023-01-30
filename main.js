@@ -12,7 +12,6 @@ const rl = readline.createInterface({
 
 //get a reference to both the input and output 
 
-
 const pigLatin = (word) => {
 word = word.trim()
   word = word.toLowerCase()
