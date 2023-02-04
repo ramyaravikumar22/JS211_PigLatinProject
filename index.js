@@ -1,6 +1,5 @@
 //import the javascript
-import pigLatin from './main'
-
+window.alert("Hi"); // testing if JS is connecting with HTML
 //create input variable
 let input = '';
 
@@ -20,12 +19,54 @@ textInput.addEventListener('keyup', (event) => {
 
 button.addEventListener('click', (e) => {
     console.log(pigLatin(input))
-    textOutput.innerText = theWord
+    textOutput.innerText = pigLatin(input)
 });
+
+const pigLatin = (word) => {
+    word = word.trim()
+      word = word.toLowerCase()
+      // Set your vowels array to compare to word
+      let vowels = ['a', 'e', 'i', 'o', 'u']
+      let wordArray = word.split('')
+      let finalArray = []
+      let bucketArray = []
+      for (let index = 0; index < 2; index++) {
+        // console.log(wordArray[index])
+        if(vowels.includes(wordArray[index])) {
+          if(index === 0){
+            let theWord = word + 'yay'
+            finalArray.push(theWord)
+          } else {
+            let theWord = word.slice(index, word.length) 
+                        + word.slice(0, index) 
+                        + 'ay';
+            finalArray.push(theWord);
+          }
+        } else if (!vowels.includes(wordArray[index])) {
+          let bucket = wordArray[index]
+          bucketArray.push(bucket)
+          if (bucketArray.length === 2) {
+            let otherArray = bucketArray.join("")
+            console.log(otherArray)
+            let theWord = word.slice(2, word.length)
+                        + word.slice(2, index)
+                        + otherArray
+                        + 'ay'
+            finalArray.push(theWord)
+          }
+        }
+      }
+      const answer = finalArray.join();
+  console.log(typeof(answer))
+  // console.log(typeof(answer))
+  return answer
+  // Your code here
+
+}
 
 reset.addEventListener('click', (e) => {
     textInput.value = '';
-    textOutput.innerText = ''
+    textOutput.innerText = '';
     input = '';
-    console.log('click')
+    console.log('click');
 })
