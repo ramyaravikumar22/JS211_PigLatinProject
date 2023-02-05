@@ -1,5 +1,5 @@
-//import the javascript
-window.alert("Hi"); // testing if JS is connecting with HTML
+// testing if JS is connecting with HTML
+window.alert("Hi"); 
 //create input variable
 let input = '';
 
